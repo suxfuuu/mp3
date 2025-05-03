@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player MP3 Moderno</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="player-container">
+        <div class="playlist-container">
+            <div class="playlist-header">
+                <h2>Playlist</h2>
+                <div class="playlist-controls">
+                    <input type="file" id="file-input" multiple accept="audio/mpeg" style="display: none;">
+                    <button onclick="document.getElementById('file-input').click()">Adicionar Músicas</button>
+                    <button onclick="clearPlaylist()">Limpar Playlist</button>
+                </div>
+            </div>
+            <ul id="playlist" class="playlist"></ul>
+        </div>
+
+        <div class="player-controls">
+            <div class="song-info">
+                <div id="current-song">Nenhuma música selecionada</div>
+                <div class="progress-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <button onclick="previousTrack()">⏮</button>
+                <button id="play-pause" onclick="togglePlayPause()">▶</button>
+                <button onclick="nextTrack()">⏭</button>
+            </div>
+
+            <div class="volume-control">
+                <input type="range" id="volume" min="0" max="1" step="0.01" value="1">
+                <span id="volume-percentage">100%</span>
+            </div>
+        </div>
+    </div>
+
+    <audio id="audio-player"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
